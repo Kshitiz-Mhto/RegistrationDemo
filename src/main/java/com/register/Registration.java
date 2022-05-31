@@ -14,13 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 public class Registration extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             //fetching all the (inputed)details of user
             String name = request.getParameter("user_name");
             String email = request.getParameter("user_email");
             String password = request.getParameter("user_pass");
+            
+             try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+            
             //connecting to the database
             try{
                 //loading the driver
