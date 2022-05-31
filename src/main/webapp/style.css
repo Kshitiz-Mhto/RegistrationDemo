@@ -8,7 +8,8 @@ body{
 .container{
 	margin: auto;
 	width: 646px;
-	border: 3.5px gray solid;
+        height: 450px;
+	border: 3.5px background solid;
 	border-radius:7px ;
 	box-shadow: .5px 1px 10px lightblue;
 }
@@ -19,10 +20,7 @@ body{
 	height: 450px;
 	width: 650px;
 }
-h1{
-	text-align: center;
-	color: grey;
-}
+
 input, button{
 	width: 600px;
 	margin: 5px;
@@ -32,6 +30,40 @@ input, button{
 	font-size: 20px;
 	color: gray;
 }
+
+h3{
+    display: inline;
+    position:relative;
+    left: 840px;
+    top:139px;
+}
+
+h1{
+	text-align: center;
+	color: grey;
+        padding:9px;
+}
+
 button{
 	box-sizing: content-box;
+}
+.loader {
+    margin: auto;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

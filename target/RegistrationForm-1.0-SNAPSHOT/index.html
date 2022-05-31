@@ -8,20 +8,49 @@
 	<link rel="stylesheet" href="./style.css" type="text/css">
 </head>
 <body>
+        <h3 id="msg"></h3>
 	<div class="container">
-		<form class="formsheet" action="Registration" method="POST">
+		<form class="formsheet" id="myform" action="Registration" method="POST">
 			<h1>Register Here</h1>
+                        
 			<input type="text" name="user_name" placeholder="Enter your Name" required><br>
 			<input type="email" name="user_email" placeholder="Enter yourr Email" required><br>
 			<input type="password" name="user_pass" placeholder="Enter yourr Password" required><br>
 			<button id="button" type="submit">SUBMIT</button>
 		</form>
+                
 	</div>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-		crossorigin="anonymous">
-			
+		crossorigin="anonymous">	
 	</script>
+        <script>
+            $(document).ready(function(){
+               $("#myform").on('submit',function(event){
+                  event.preventDefault();
+                  var f = $(this).serialize();
+                  $.ajax({
+                      url:"Registration",
+                      data:f,
+                      type:'post',
+                      success: function(data,textStatus,jqXHR){
+                          console.log("succcess...");
+                          if (data.trim()==="done..."){
+                              $('#msg').html("Successfully registered")
+                          }
+                          else
+                          {
+                              $('#msg').html("something went wrong")
+                          }
+                      },
+                      error: function(jqXHR,textStatus,errorThrown){
+                          console.log(data);
+                          $('#msg').html("something went wrong")
+                      }
+                  });
+                });
+            });
+        </script>
 </body>
 </html>
